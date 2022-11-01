@@ -1,0 +1,7 @@
+**/src/research
+**/src/data
+**/src/out
+**/src/__pycache__
+**/src/.vscode
+**/src/.cache
+__cred.py
