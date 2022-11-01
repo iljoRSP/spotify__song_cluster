@@ -1,6 +1,7 @@
 import json
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
 
 import __cred
 
@@ -14,15 +15,16 @@ def main():
     scope = "user-library-read"
 
     try:
-        sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-                client_id=__cred.client_id, 
-                client_secret=__cred.client_secret, 
-                redirect_uri=__cred.redirect_url, 
-                scope=scope
+        sp = spotipy.Spotify(
+                auth_manager=SpotifyOAuth(
+                    client_id=__cred.client_id, 
+                    client_secret=__cred.client_secret, 
+                    redirect_uri=__cred.redirect_url, 
+                    scope=scope
                 )
             )
     except Exception as e:
-        print(e)
+        print('\n\n\t', e, '\n')
         return
 
     print('Success.')
