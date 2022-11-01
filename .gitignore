@@ -3,5 +3,5 @@
 **/src/out
 **/src/__pycache__
 **/src/.vscode
-**/src/.cache
+.cache
 __cred.py
