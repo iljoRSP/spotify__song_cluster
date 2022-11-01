@@ -1,7 +1,6 @@
 import json
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-from spotipy.oauth2 import SpotifyClientCredentials
 
 import __cred
 
@@ -28,8 +27,6 @@ def main():
         return
 
     print('Success.')
-
-
 
 
     ########  prep json for raw data  ######## 
