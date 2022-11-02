@@ -1,3 +1,10 @@
+RELEASE v0.1
+
+works with hardcoded __cred.py file
+only works on liked songs
+process is manual, involving 3 different files to be run separately
+
+
 place src in ./spotify__song_cluster
 create venv in ./__all_venvs/spotify__song_cluster
 
@@ -14,3 +21,5 @@ foobar \
                 
     spotify__song_cluster \
         src /
+        
+        
