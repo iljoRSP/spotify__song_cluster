@@ -5,5 +5,5 @@
 **/src/__pycache__
 **/src/.vscode
 .cache*
-__cred.py
+**/src/spcl_client_creds.py
 LICENSE
