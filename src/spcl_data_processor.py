@@ -9,4 +9,8 @@ class DataProcessor:
 
 
     def import_features(self, features):
-        
+        pass
+
+
+    def agglo_cluster(self):
+        pass
