@@ -1,7 +1,8 @@
-**/src/research
-**/src/data
-**/src/out
+**/research
+**/data
+**/out
 **/src/__pycache__
 **/src/.vscode
-.cache
+.cache*
 __cred.py
+LICENSE

@@ -2,12 +2,12 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-import __cred
+import spcl_client_creds
 
 
 print('Establishing connection with Spotify API...\t', end = '')
 scope = "playlist-modify-private"
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=__cred.client_id, client_secret=__cred.client_secret, redirect_uri=__cred.redirect_url, scope=scope))
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=spcl_client_creds.client_id, client_secret=spcl_client_creds.client_secret, redirect_uri=spcl_client_creds.redirect_url, scope=scope))
 
 print('Success.')
 

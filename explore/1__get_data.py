@@ -2,7 +2,7 @@ import json
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-import __cred
+import spcl_client_creds
 
 
 def main():
@@ -16,9 +16,9 @@ def main():
     try:
         sp = spotipy.Spotify(
                 auth_manager=SpotifyOAuth(
-                    client_id=__cred.client_id, 
-                    client_secret=__cred.client_secret, 
-                    redirect_uri=__cred.redirect_url, 
+                    client_id=spcl_client_creds.client_id, 
+                    client_secret=spcl_client_creds.client_secret, 
+                    redirect_uri=spcl_client_creds.redirect_url, 
                     scope=scope
                 )
             )
@@ -37,7 +37,7 @@ def main():
         running_offset = 0
         ctr = 1
         master = []
-        batch_size = __cred.batch_size if __cred.batch_size else 20
+        batch_size = spcl_client_creds.batch_size if spcl_client_creds.batch_size else 20
 
         # continue requesting songs (at specified batch size) until all songs queried
         while not end_of_playlist:
