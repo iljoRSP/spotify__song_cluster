@@ -1,6 +1,7 @@
 **/research
 **/data
 **/out
+**/explore
 **/src/__pycache__
 **/src/.vscode
 .cache*
