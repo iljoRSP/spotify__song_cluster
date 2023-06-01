@@ -1,23 +1,3 @@
-# import pickle
-
-# RAW_FEATURES_CACHE = './data/raw_features.bin'
-# CLUSTERED_IDS_CACHE = './data/clustered_ids.bin'
-
-# def cache_raw_features(raw_features):
-#     with open(RAW_FEATURES_CACHE, 'wb') as f:
-#         pickle.dump(raw_features, f)
-
-
-# def read_raw_features_cache():
-#     with open(RAW_FEATURES_CACHE, 'rb') as f:
-#         return pickle.load(f)
-
-
-# def read_clustered_ids():
-#     with open(CLUSTERED_IDS_CACHE, 'rb') as f:
-#         return pickle.load(f)
-
-
 from spcl_api_handler import ApiHandler
 from spcl_data_processor import DataProcessor
 

@@ -1,3 +1,5 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../config')
 import spcl_client_creds
 
 from spotipy import Spotify

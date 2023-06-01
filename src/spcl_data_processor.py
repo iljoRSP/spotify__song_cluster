@@ -37,7 +37,7 @@ class DataProcessor:
             self.targeted_n_clusters = 3 + (len(self.features) > 1000)  # for larger datasets, use 4 clusters
 
         clustering_model = KMeans(
-            n_clusters=self.targeted_n_clusters
+            n_clusters=self.targeted_n_clusters,
             n_init='auto'
         )
 

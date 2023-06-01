@@ -1,9 +1,8 @@
-**/research
-**/data
-**/out
-**/explore
-**/src/__pycache__
-**/src/.vscode
-.cache*
-**/src/spcl_client_creds.py
+/config
+/temp
+/research/*
+!/research/model_testing.ipynb
+/src/*
+!/src/*.py
+.cache
 LICENSE
