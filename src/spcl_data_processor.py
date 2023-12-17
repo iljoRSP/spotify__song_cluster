@@ -50,6 +50,27 @@ class DataProcessor:
         pass
 
 
+    def perform_smooth_queue(self):
+        from itertools import combinations
+        from networkx import Graph
+        from networkx.algorithms.approximation import christofides
+
+        graph = Graph()
+
+        for i_u, i_v in combinations(range(len(self.ids)), 2):
+            id_u, id_v = self.ids[i_u], self.ids[i_v]
+            u, v = self.features[i_u], self.features[i_v]
+
+            weight = np.sqrt(np.sum(np.square(u - v)))
+
+            graph.add_weighted_edges_from([(id_u, id_v, weight)])
+
+        self.smooth_queue = christofides(graph)
+
+        return self.smooth_queue
+
+
+
     def get_id_cluster_map(self):
         grouped_clusters = {}
 
@@ -58,3 +79,5 @@ class DataProcessor:
             grouped_clusters[cluster_num+1] = self.ids[indices]
 
         return grouped_clusters
+
+

@@ -1,8 +1,8 @@
 Just a fun project I'm working on during my free time.
 
 
-Supposed to take a user's Liked Songs and cluster them into playlists based on mood. Still needs a snazzy name, like Moodify or something.
-The ML model turned out extremely uncomplex, but there's quite a bit of thought put behind it (check out /research/model_testing.ipynb)
+Supposed to take a user's Liked Songs and cluster them into playlists based on mood. Still needs a snazzy name, like Moodify or something. Except that's taken!
+The ML model turned out extremely uncomplex (for now, I am considering further refining hyperparams), but there's quite a bit of thought put behind it (check out /research/model_testing.ipynb)
 
 
 If you for some reason have thoughts on what I can/should do, please let me know :) Always up to learn what I've done wrong.

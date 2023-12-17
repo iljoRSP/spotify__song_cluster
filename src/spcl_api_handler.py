@@ -107,3 +107,22 @@ class ApiHandler:
 
                 batch = id_list[i:i+_batch_size]
                 self.endpoint.playlist_add_items(new_playlist['id'], batch)
+
+
+    def create_smooth_queue(self, sequence: list):
+        """
+        Creates a playlist where consecutive songs are very similar.
+        """
+
+        new_playlist = self.endpoint.user_playlist_create(
+            user=self.endpoint.me()['id'],
+            name=f'Smooth Queue',
+            public=False,
+            description='Auto generated playlist from Liked Songs.'
+        )
+
+        _batch_size = 100
+        for i in range(0, len(sequence), _batch_size):
+
+            batch = sequence[i:i+_batch_size]
+            self.endpoint.playlist_add_items(new_playlist['id'], batch)

@@ -3,6 +3,7 @@
 /research/*
 !/research/model_testing.ipynb
 /src/*
+/venv
 !/src/*.py
 .cache
 LICENSE

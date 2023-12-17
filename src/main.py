@@ -2,6 +2,7 @@ from spcl_api_handler import ApiHandler
 from spcl_data_processor import DataProcessor
 
 
+
 if __name__ == '__main__':
 
     ### EXTRACT DATA ###
@@ -12,8 +13,12 @@ if __name__ == '__main__':
         .request_audio_features()   \
         .get_features_raw()
 
+    # from pickle import dump
+    # with open("../temp/raw_features.bin", 'wb') as f:
+    #     dump(features_raw, f)
+    # quit()
 
-    ### PROCESS DATA ###
+    ### CREATE PLAYLISTS ###
     data_processor = DataProcessor()
 
     id_cluster_map = data_processor     \
@@ -21,8 +26,14 @@ if __name__ == '__main__':
         .perform_clustering()           \
         .get_id_cluster_map()
 
-
-    ### CREATE PLAYLISTS ###
     api_communicator.create_playlists(id_cluster_map)
+
+
+    ### CREATE SMOOTH QUEUE ###
+    id_smooth_queue = data_processor    \
+        .perform_smooth_queue()
+
+    api_communicator.create_smooth_queue(id_smooth_queue)
+
 
     print('Success')
