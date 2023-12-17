@@ -2,18 +2,6 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 
-from typing import Callable, Any
-
-def chainable(func: Callable[..., Any]) -> Callable[..., 'DataProcessor']:
-    """
-    Decorates a class method to return its instance `self`, plus type hinting
-    """
-    def wrapped_func(self, *args, **kwargs):
-        func(self, *args, **kwargs)
-        return self
-
-    return wrapped_func
-
 
 class DataProcessor:
 
@@ -23,7 +11,7 @@ class DataProcessor:
         self.cluster_labels = None
         self.targeted_n_clusters = None
 
-    @chainable
+
     def import_features(self, features_raw: dict):
         self.ids = np.array([d['id'] for d in features_raw])
 
@@ -31,8 +19,7 @@ class DataProcessor:
         self.features = np.array([[d[key] for key in RETAINED_FEATURES] for d in features_raw])
 
 
-    @chainable
-    def perform_clustering(self, clusters=None):
+    def calculate_clusters(self, clusters=None):
         if clusters is None:
             self.targeted_n_clusters = 3 + (len(self.features) > 1000)  # for larger datasets, use 4 clusters
 
@@ -43,14 +30,10 @@ class DataProcessor:
 
         self.cluster_labels = clustering_model.fit_predict(self.features)
 
-
-    @chainable
-    def guess_clusters(self):
-        # guess what kind of songs are in a given playlist
-        pass
+        return self.__get_id_cluster_map()
 
 
-    def perform_smooth_queue(self):
+    def calculate_smooth_queue(self):
         from itertools import combinations
         from networkx import Graph
         from networkx.algorithms.approximation import christofides
@@ -70,8 +53,12 @@ class DataProcessor:
         return self.smooth_queue
 
 
+    def __guess_clusters(self):
+        # guess what kind of songs are in a given playlist
+        pass
 
-    def get_id_cluster_map(self):
+
+    def __get_id_cluster_map(self):
         grouped_clusters = {}
 
         for cluster_num in range(self.targeted_n_clusters):
@@ -79,5 +66,3 @@ class DataProcessor:
             grouped_clusters[cluster_num+1] = self.ids[indices]
 
         return grouped_clusters
-
-
